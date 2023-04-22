@@ -1,7 +1,7 @@
 import { useState } from "react"
 import { Button, Container, Form, Table } from "react-bootstrap";
 import { evaluate } from 'mathjs'
-import Plot from 'react-plotly.js';
+// import Plot from 'react-plotly.js';
 
 const False_Position =()=>{
     //print Result 
@@ -33,13 +33,13 @@ const False_Position =()=>{
                         })}
                     </tbody>
                 </Table>
-                <Plot style={{display: 'flex',alignItems: 'center',justifyContent: 'center'}}
+                {/* <Plot style={{display: 'flex',alignItems: 'center',justifyContent: 'center'}}
                     data = {value}
                     layout={{
                     width: 1000, height: 600,
                     title: "False Position Chart",
                     }}
-                />
+                /> */}
             </Container>
            
         );
@@ -183,20 +183,33 @@ const False_Position =()=>{
             <br></br>
             <h1>False Position</h1>
             <Form>
-                <Form.Group className="mb-3" style={{display:"flex"}}>
+
+            <Form.Group className="mb-3" style={{display:"flex"}}>
+  <Form.Label htmlFor="Equation" style={{paddingTop:"5px"}}><strong>Input f(x)</strong></Form.Label>
+  <input type="text" id="Equation" value={Equation} onChange={inputEquation} style={{width:"20%",marginLeft:"20px",marginRight:"60px"}} className="form-control"></input>
+  <Form.Label htmlFor="XL" style={{paddingTop:"5px"}}><strong>Input XL</strong></Form.Label>
+  <input type="number" id="XL" onChange={inputXL} style={{width:"20%",marginLeft:"20px",marginRight:"60px"}} className="form-control"></input>
+  <Form.Label htmlFor="XR" style={{paddingTop:"5px"}}><strong>Input XR</strong></Form.Label>
+  <input type="number" id="XR" onChange={inputXR} style={{width:"20%",marginLeft:"20px"}} className="form-control"></input>                      
+</Form.Group>
+<Button variant="dark" onClick={calculateRoot}  id="cal">
+                    Calculate
+                </Button>  
+
+                {/* <Form.Group className="mb-3" style={{display:"flex"}}>
                 <Form.Label style={{paddingTop:"5px"}}><strong>Input f(x)</strong></Form.Label>
-                    <input type="text" id="equation" value={Equation} onChange={inputEquation} style={{width:"20%",marginLeft:"20px",marginRight:"60px"}} className="form-control"></input>
+                    <input type="text" id="Equation" value={Equation} onChange={inputEquation} style={{width:"20%",marginLeft:"20px",marginRight:"60px"}} className="form-control"></input>
                     <Form.Label style={{paddingTop:"5px"}}><strong>Input XL</strong></Form.Label>
                     <input type="number" id="XL" onChange={inputXL} style={{width:"20%",marginLeft:"20px",marginRight:"60px"}} className="form-control"></input>
                     <Form.Label style={{paddingTop:"5px"}}><strong>Input XR</strong></Form.Label>
                     <input type="number" id="XR" onChange={inputXR} style={{width:"20%",marginLeft:"20px"}} className="form-control"></input>                      
                 </Form.Group>
-                <Button variant="dark" onClick={calculateRoot}>
+                <Button variant="dark" onClick={calculateRoot}  id="cal">
                     Calculate
-                </Button> 
+                </Button>  */}
             </Form>
             <br></br>
-            <h5>Answer = {X.toPrecision(7)}</h5>
+            <h5 id="ans">Answer = {X.toPrecision(7)}</h5>
             <Container>
             {html}
             </Container>     

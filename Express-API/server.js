@@ -12,10 +12,9 @@ const TOKEN_KEY="shffhsjfkh"
 
 // create the connection to database
 const connection = mysql.createConnection({
-  host: 'mysql',
+  host: 'localhost',
   user: 'root',
-  database: 'tour_database',
-  password:'1234'
+  database: 'tour_database'
 });
 
 

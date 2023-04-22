@@ -1,7 +1,7 @@
 import { useState } from "react"
 import { Button, Container, Form, Table} from "react-bootstrap";
 import { evaluate } from 'mathjs'
-import Plot from 'react-plotly.js';
+// import Plot from 'react-plotly.js';
 import axios from 'axios';
 const apiURL= "http://localhost:5000/bisection/2"
 var temp;
@@ -36,13 +36,13 @@ const Bisection = () =>{
                         })}
                     </tbody>
                 </Table>
-                <Plot style={{display: 'flex',alignItems: 'center',justifyContent: 'center'}}
+                {/* <Plot style={{display: 'flex',alignItems: 'center',justifyContent: 'center'}}
                     data = {value}
                     layout={{
                     width: 1000, height: 600,
                     title: "Bisection Chart",
                     }}
-                />
+                /> */}
             </Container>
         )
             
