@@ -1,0 +1,46 @@
+version: '3.1'
+
+networks:
+  my-networks:
+    name: my-networks
+    driver: bridge
+
+services:
+  db:
+    container_name: mysql
+    image: mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: 1234
+      MYSQL_DATABASE: test_db
+    ports:
+      - "3306:3306"
+    networks:
+      - my-networks
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin:latest
+    restart: always
+    environment:
+      PMA_HOST: db
+      PMA_USER: root
+      PMA_PASSWORD: 1234
+    ports:
+      - "8080:80"
+    networks:
+      - my-networks
+  
+  react-web:
+    container_name: react-web
+    image: react-images
+    ports:
+        - "3000:3000"
+    networks:
+        - my-networks
+   
+  express-server:
+    container_name: express-server
+    image: server-images
+    ports:
+      - "5000:5000"
+    networks:
+      - my-networks
